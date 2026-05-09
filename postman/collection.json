@@ -23,7 +23,8 @@
               "path": [
                 "posts"
               ]
-            }
+            },
+            "description": "StartFragment`Returns all posts` EndFragment"
           },
           "response": []
         },
@@ -31,31 +32,97 @@
           "name": "Get Post By Id",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/{{postId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "{{postId}}"
+              ]
+            },
+            "description": "StartFragment `Returns post by ID`EndFragment"
           },
           "response": []
         },
         {
           "name": "Create Post",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();\r",
+                  "pm.environment.set(\"postId\", json.id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
           "request": {
-            "method": "GET",
-            "header": []
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Test Post\",\r\n  \"body\": \"This is a test\",\r\n  \"userId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/posts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
+              ]
+            },
+            "description": "StartFragmentCreates new postEndFragment"
           },
           "response": []
         },
         {
           "name": "Update Post",
           "request": {
-            "method": "GET",
-            "header": []
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "1"
+              ]
+            },
+            "description": "StartFragmentUpdates post by IDEndFragment"
           },
           "response": []
         },
         {
           "name": "Delete Post",
           "request": {
-            "method": "GET",
-            "header": []
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "1"
+              ]
+            },
+            "description": "StartFragmentDeletes post by IDEndFragment"
           },
           "response": []
         }
@@ -76,7 +143,18 @@
           "name": "Get User By Id",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            },
+            "description": "StartFragmentReturns user by IDEndFragment"
           },
           "response": []
         }
@@ -99,7 +177,8 @@
                 "posts",
                 "999"
               ]
-            }
+            },
+            "description": "StartFragment `Returns 404 error`EndFragment"
           },
           "response": []
         }
