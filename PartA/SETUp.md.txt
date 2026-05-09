@@ -1,0 +1,24 @@
+# API Setup — JSONPlaceholder
+
+## Сонгосон API
+JSONPlaceholder — https://jsonplaceholder.typicode.com
+
+## Тайлбар
+JSONPlaceholder бол REST API тестэд зориулсан үнэгүй нээлттэй API.
+CRUD үйлдлүүдийг дэмждэг хуурамч endpoint-уудтай.
+
+## Auth
+Auth шаардахгүй — token, API key байхгүй.
+
+## Base URL
+https://jsonplaceholder.typicode.com
+
+## Ашиглах endpoint-ууд
+- GET /posts
+- GET /posts/1
+- POST /posts
+- PUT /posts/1
+- DELETE /posts/1
+- GET /users
+- GET /users/1
+- GET /posts/999 (error case)
