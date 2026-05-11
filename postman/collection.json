@@ -134,6 +134,19 @@
                 "packages": {},
                 "requests": {}
               }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const timestamp = new Date().toISOString();\r",
+                  "pm.environment.set(\"timestamp\", timestamp);\r",
+                  "console.log(\"Request sent at: \" + timestamp);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
             }
           ],
           "request": {
